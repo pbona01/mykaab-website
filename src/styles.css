@@ -26,3 +26,32 @@
 @media(max-width:600px){.navbar{height:58px}.mobile-menu{top:64px}.hero{padding-top:112px}}
 @media(max-width:600px){.hero-copy h1{font-size:clamp(46px,12.5vw,52px);letter-spacing:-.06em;max-width:none}}
 @media(prefers-reduced-motion:reduce){.reveal-on-scroll{opacity:1;transform:none;transition:none;will-change:auto}}
+
+/* Photo-led editorial treatment: keep the journey and people in focus, not app frames. */
+.hero-photo-wrap{height:590px;border-radius:28px;overflow:hidden;box-shadow:0 28px 70px rgba(15,23,42,.16);background:var(--ink)}
+.hero-photo{width:100%;height:100%;object-fit:cover;object-position:55% center;display:block}
+.hero-photo-wrap:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(9,15,30,.58));pointer-events:none}
+.hero-photo-wrap .commission-badge{z-index:2;right:22px;top:22px}
+.photo-caption{position:absolute;z-index:2;left:30px;bottom:27px;color:white;display:flex;flex-direction:column;gap:7px;text-shadow:0 2px 12px rgba(0,0,0,.25)}
+.photo-caption span,.driver-photo-label,.how-photo>span{font-size:10px;letter-spacing:.14em;font-weight:700}
+.photo-caption b{font:600 22px Manrope}
+.commission-spotlight{display:block;font:700 clamp(78px,10vw,128px)/.85 Manrope;letter-spacing:-.09em;color:var(--ink);margin:16px 0 19px}
+.feature-large h3{font-size:clamp(32px,4vw,48px)}
+.rider-photo-card{position:relative;min-height:540px;border-radius:26px;overflow:hidden;background:var(--ink);box-shadow:0 24px 60px rgba(15,23,42,.12)}
+.rider-photo-card>img{width:100%;height:100%;min-height:540px;display:block;object-fit:cover;object-position:center}
+.rider-photo-card:after{content:"";position:absolute;inset:38% 0 0;background:linear-gradient(transparent,rgba(9,15,30,.8));pointer-events:none}
+.rider-photo-note{position:absolute;z-index:2;left:26px;right:26px;bottom:25px;color:white;display:flex;flex-direction:column;align-items:flex-start;gap:9px}
+.rider-photo-note>span{font-size:10px;letter-spacing:.14em;font-weight:700;color:var(--gold-light)}
+.rider-photo-note>b{font:600 24px Manrope;letter-spacing:-.03em}
+.rider-photo-note>button{border:0;background:var(--gold);color:var(--ink);font-weight:700;border-radius:999px;padding:11px 15px;display:flex;align-items:center;gap:8px;cursor:pointer;margin-top:5px}
+.photo-fare{position:absolute;bottom:54px;left:0;right:0;color:var(--ink);filter:drop-shadow(0 12px 24px rgba(0,0,0,.2))}
+.photo-fare .receipt{padding:14px;border-radius:16px}.photo-fare .receipt-lines div{font-size:9px}
+.driver-visual{position:relative}.driver-visual>img{height:100%;object-fit:cover;object-position:center 38%}
+.driver-photo-label{position:absolute;bottom:22px;left:24px;border-radius:999px;padding:12px 15px;background:rgba(15,23,42,.78);color:white;backdrop-filter:blur(10px)}
+.how-photo{position:relative;min-height:520px;overflow:hidden;background:var(--ink)}
+.how-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.how-grid:hover .how-photo img{transform:scale(1.035)}
+.how-photo:after{content:"";position:absolute;inset:50% 0 0;background:linear-gradient(transparent,rgba(9,15,30,.7))}
+.how-photo>span{position:absolute;z-index:1;left:25px;bottom:23px;color:white;text-transform:uppercase}
+@media(max-width:820px){.hero-photo-wrap{height:540px}.rider-photo-card,.rider-photo-card>img{min-height:480px}.how-photo{min-height:430px}}
+@media(max-width:600px){.hero-photo-wrap{height:420px;border-radius:22px}.hero-photo{object-position:58% center}.hero-photo-wrap .commission-badge{right:12px;top:12px;transform:scale(.9);transform-origin:top right}.photo-caption{left:18px;bottom:18px}.photo-caption b{font-size:18px}.rider-photo-card,.rider-photo-card>img{min-height:400px}.rider-photo-card>img{object-position:58% center}.rider-photo-note{left:18px;right:18px;bottom:18px}.rider-photo-note>b{font-size:21px}.driver-photo-label{left:14px;bottom:14px}.how-photo{min-height:340px}.commission-spotlight{font-size:82px;margin:10px 0 14px}}

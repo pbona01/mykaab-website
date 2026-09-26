@@ -9,6 +9,50 @@
 @media(max-width:360px){h1{font-size:48px}.commission-badge{transform:scale(.82);transform-origin:right top}.phone-wrap{left:-6%}.floating-receipt{right:-93px}.footer-cols{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
+/* Dark mode keeps MyKaab's warm gold and deep-navy identity while lifting reading surfaces. */
+:root[data-theme="dark"]{color-scheme:dark;--gold:#D8AE32;--gold-light:#E7CC79;--gold-soft:#3A321D;--gold-dark:#E7CC79;--ink:#0F172A;--ink-soft:#1B2940;--muted:#B6C0D0;--cream:#121D31;--cream-dark:#0B1220;--surface:#0F172A;--white:#172238;--success:#72C99A}
+:root[data-theme="light"]{color-scheme:light}
+html,body{transition:background-color .3s var(--ease),color .3s var(--ease)}
+:root[data-theme="dark"] body{color:#F4F3EF}
+:root[data-theme="dark"] .logo,:root[data-theme="dark"] .nav-links a,:root[data-theme="dark"] .signin,:root[data-theme="dark"] .btn-outline,:root[data-theme="dark"] .founder-contact a{color:#F4F3EF}
+.theme-toggle{width:42px;height:42px;display:grid;place-items:center;flex:none;border:1px solid rgba(15,23,42,.12);border-radius:50%;background:rgba(255,255,255,.58);color:var(--ink);cursor:pointer;transition:background .25s var(--ease),border-color .25s var(--ease),transform .25s var(--ease),color .25s var(--ease)}
+.theme-toggle:hover{transform:rotate(-8deg);background:var(--gold-soft);border-color:var(--gold)}
+.theme-toggle:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+:root[data-theme="dark"] .navbar{background:rgba(15,23,42,.84);border-color:rgba(231,204,121,.16);box-shadow:0 12px 34px rgba(0,0,0,.24)}
+:root[data-theme="dark"] .nav-scrolled{background:rgba(11,18,32,.94);border-color:rgba(231,204,121,.22)}
+:root[data-theme="dark"] .theme-toggle{background:#1B2940;border-color:#35425A;color:var(--gold-light)}
+:root[data-theme="dark"] .logo-mark{background:var(--gold);color:#0F172A}
+:root[data-theme="dark"] .rider-section,:root[data-theme="dark"] .union-section,:root[data-theme="dark"] .how-section{background:var(--surface)}
+:root[data-theme="dark"] .hero:before{opacity:.025}
+:root[data-theme="dark"] .feature-card,:root[data-theme="dark"] .safety-grid article{background:var(--white);border-color:#29364C}
+:root[data-theme="dark"] .feature-large{background:var(--gold);color:#111827}
+:root[data-theme="dark"] .feature-large .eyebrow,:root[data-theme="dark"] .feature-large .card-num{color:#182133}
+:root[data-theme="dark"] .feature-large p:not(.eyebrow){color:#253044}
+:root[data-theme="dark"] .feature-card p:not(.eyebrow),:root[data-theme="dark"] .safety-grid p{color:var(--muted)}
+:root[data-theme="dark"] .feature-large p:not(.eyebrow){color:#253044}
+:root[data-theme="dark"] .dark-card,:root[data-theme="dark"] .safety-grid .safety-big{background:#172238;color:#F4F3EF}
+:root[data-theme="dark"] .dark-card p:not(.eyebrow),:root[data-theme="dark"] .safety-big p{color:#B6C0D0}
+:root[data-theme="dark"] .booking-card,:root[data-theme="dark"] .access-card{border-color:#29364C}
+:root[data-theme="dark"] .booking-card>label,:root[data-theme="dark"] .booking-options button,:root[data-theme="dark"] .form-wrap,:root[data-theme="dark"] .form-wrap input,:root[data-theme="dark"] .choice button,:root[data-theme="dark"] .app-pills span{background:#0F172A;color:var(--ink);border-color:#35425A}
+:root[data-theme="dark"] .booking-card>label{border-color:#35425A}
+:root[data-theme="dark"] .booking-options .active,:root[data-theme="dark"] .choice .active{background:var(--gold);color:#111827;border-color:var(--gold)}
+:root[data-theme="dark"] .rate-list,:root[data-theme="dark"] .rate-list div,:root[data-theme="dark"] .accordion,:root[data-theme="dark"] .faq{border-color:#35425A}
+:root[data-theme="dark"] .how-steps>div,:root[data-theme="dark"] .principles,:root[data-theme="dark"] .principles div{border-color:#35425A}
+:root[data-theme="dark"] .tabs{background:#172238}
+:root[data-theme="dark"] .tabs button[aria-selected=true]{background:var(--gold);color:#111827}
+:root[data-theme="dark"] .how-grid{background:#121D31}
+:root[data-theme="dark"] .mobile-menu{background:#0F172A;border-color:#35425A}
+:root[data-theme="dark"] .mobile-menu a{color:#F4F3EF;border-color:#35425A}
+:root[data-theme="dark"] .story-steps article{background:rgba(255,255,255,.72);border-color:rgba(15,23,42,.14)}
+:root[data-theme="dark"] .story-steps p{color:#343944}
+:root[data-theme="dark"] .receipt{background:#172238;color:#F4F3EF;border-color:#35425A}
+:root[data-theme="dark"] .receipt-lines div,:root[data-theme="dark"] .receipt-total{border-color:#35425A}
+:root[data-theme="dark"] .driver-phone .phone-screen{background:#121D31}
+:root[data-theme="dark"] .trip-done,:root[data-theme="dark"] .driver-total{background:#1B2940;color:#F4F3EF}
+:root[data-theme="dark"] .driver-total strong{border-color:#35425A}
+:root[data-theme="dark"] .mobile-sticky{color:#111827}
+@media(max-width:820px){.theme-toggle{width:39px;height:39px}.nav-actions{display:flex;align-items:center;gap:10px}}
+
 /* Final polish: floating pill navigation and subtle, viewport-triggered reveals. */
 .navbar{top:14px;left:50%;right:auto;transform:translateX(-50%);width:min(1360px,calc(100% - 48px));height:72px;border:1px solid rgba(15,23,42,.08);border-radius:999px;background:rgba(248,245,239,.78);backdrop-filter:blur(16px);box-shadow:0 10px 30px rgba(15,23,42,.045);transition:background .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease)}
 .nav-scrolled{background:rgba(255,254,251,.95);border-color:rgba(15,23,42,.12);box-shadow:0 12px 34px rgba(15,23,42,.1)}

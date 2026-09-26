@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { ArrowRight, BadgeCheck, CalendarClock, Check, ChevronDown, CircleDollarSign, Headphones, Menu, Mic2, PhoneCall, Route, ShieldCheck, Sparkles, Users, WalletCards, X } from 'lucide-react'
+import { ArrowRight, BadgeCheck, CalendarClock, Check, ChevronDown, CircleDollarSign, Headphones, Menu, Mic2, Moon, PhoneCall, Route, ShieldCheck, Sparkles, Sun, Users, WalletCards, X } from 'lucide-react'
 
 const nav = [['For riders','riders'],['For drivers','drivers'],['Fares','fares'],['Safety','safety'],['AUATON','auaton']]
 const stats = [['0%','Commission on every trip'],['₦2,500','Current published base fare'],['3 min','Free waiting time'],['24/7','Safety desk']]
@@ -24,11 +24,23 @@ function Logo({light=false}) { return <a href="#top" className="logo" aria-label
 function Navbar() {
   const [open,setOpen] = useState(false)
   const [scrolled,setScrolled] = useState(false)
+  const [theme,setTheme] = useState(()=>{
+    try {
+      const saved=localStorage.getItem('mykaab-theme')
+      if(saved==='dark'||saved==='light') return saved
+      return matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'
+    } catch { return 'light' }
+  })
   useEffect(()=>{ const fn=()=>setScrolled(scrollY>24); fn(); addEventListener('scroll',fn,{passive:true}); return()=>removeEventListener('scroll',fn)},[])
+  useEffect(()=>{
+    document.documentElement.dataset.theme=theme
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content',theme==='dark'?'#0B1220':'#F8F5EF')
+    try { localStorage.setItem('mykaab-theme',theme) } catch {}
+  },[theme])
   return <header className={`navbar ${scrolled?'nav-scrolled':''}`}>
     <div className="nav-inner"><Logo />
       <nav className="nav-links" aria-label="Main navigation">{nav.map(([label,id])=><a key={id} href={`#${id}`}>{label}</a>)}</nav>
-      <div className="nav-actions"><a className="signin" href="#early-access">Contact</a><a className="btn btn-gold btn-small" href="#early-access">Get early access</a><button className="menu-btn" onClick={()=>setOpen(v=>!v)} aria-expanded={open} aria-label="Open navigation">{open?<X/>:<Menu/>}</button></div>
+      <div className="nav-actions"><button className="theme-toggle" type="button" onClick={()=>setTheme(v=>v==='dark'?'light':'dark')} aria-label={`Switch to ${theme==='dark'?'light':'dark'} mode`} aria-pressed={theme==='dark'} title={`Switch to ${theme==='dark'?'light':'dark'} mode`}>{theme==='dark'?<Sun size={18}/>:<Moon size={18}/>}</button><a className="signin" href="#early-access">Contact</a><a className="btn btn-gold btn-small" href="#early-access">Get early access</a><button className="menu-btn" onClick={()=>setOpen(v=>!v)} aria-expanded={open} aria-label={open?'Close navigation':'Open navigation'}>{open?<X/>:<Menu/>}</button></div>
     </div>
     <AnimatePresence>{open&&<motion.nav initial={{height:0,opacity:0}} animate={{height:'auto',opacity:1}} exit={{height:0,opacity:0}} className="mobile-menu">{nav.map(([label,id])=><a key={id} onClick={()=>setOpen(false)} href={`#${id}`}>{label}<ArrowRight size={18}/></a>)}<a href="#early-access">Contact<ArrowRight size={18}/></a></motion.nav>}</AnimatePresence>
   </header>

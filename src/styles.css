@@ -147,6 +147,9 @@ html,body{transition:background-color .3s var(--ease),color .3s var(--ease)}
 :root[data-theme="dark"] .story-steps article{background:rgba(255,255,255,.72);color:#111827}
 :root[data-theme="dark"] .story-steps h3,:root[data-theme="dark"] .story-steps p{color:#111827}
 
+.calc-fields select{grid-column:1/-1;width:100%;min-height:44px;padding:0 12px;border:1px solid #39465d;border-radius:10px;background:var(--ink-soft);color:inherit;font:inherit}
+.calc-fields select:focus-visible{outline:2px solid var(--gold-light);outline-offset:2px}
+
 /* Keep mobile focused on the page content; access remains available in-page. */
 .mobile-sticky{display:none!important}
 @media(max-width:600px){body{padding-bottom:0}}

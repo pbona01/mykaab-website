@@ -146,3 +146,7 @@ html,body{transition:background-color .3s var(--ease),color .3s var(--ease)}
 :root[data-theme="dark"] .story-section .eyebrow,:root[data-theme="dark"] .story-steps article>span{color:#493A0D}
 :root[data-theme="dark"] .story-steps article{background:rgba(255,255,255,.72);color:#111827}
 :root[data-theme="dark"] .story-steps h3,:root[data-theme="dark"] .story-steps p{color:#111827}
+
+/* Keep mobile focused on the page content; access remains available in-page. */
+.mobile-sticky{display:none!important}
+@media(max-width:600px){body{padding-bottom:0}}
